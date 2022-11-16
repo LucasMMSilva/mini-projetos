@@ -1,12 +1,12 @@
 var inputAria = document.querySelector('#inputAria');
-//var selectInput = document.querySelector('#selectInput').value;
+var selectInput = document.querySelector('#selectInput').value;
 var romanicValue = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000};
 function convert(){
-    //if(selectInput.value == 'ar-d'){
+    if(selectInput.value == 'ar-d'){
         inputAria.value = convertToDecimal().toString();
-    /*}else{
+    }else{
 
-    }*/
+    }
     
 }
 function convertToDecimal(){
