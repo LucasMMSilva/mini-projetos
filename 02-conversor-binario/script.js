@@ -1,7 +1,6 @@
 var inputAria     =  document.querySelector('#inputAria');
 var selectInput   =  document.querySelector('#selectInput');
 
-
 function convert(){
     if(selectInput.value == 'b-d'){
         inputAria.value = convertToDecimal().toString();
