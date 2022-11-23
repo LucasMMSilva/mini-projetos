@@ -37,27 +37,32 @@ body{
         font-size: 20px;
     }
 .task-container{
-    padding: 0px 10px; 
+    padding: 10px 10px; 
     overflow-y: scroll;
     height:calc(100vh - 40px);
 }
-.task:first-child {
-    margin-top: 40px;
-}
-.task{
-    background-color: white;
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    margin: 10px auto;
-    margin-bottom: 25px;
+.caixa{
     max-width: 800px;
-    padding: 30px;
+    margin-top: 40px;
+    margin: 10px auto;
     border-radius: 5px;
-    font-size: 20px;
+    background-color: white;
     box-shadow: rgb(195, 195, 195) 0px 3px 5px 2px;
 }
+.task:first-child {
+    border-top: none;
+}
+.task{
+    
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;    
+    padding: 30px;
+    border-top: solid 1px rgb(184, 184, 184);
+    font-size: 20px;
+    
+}
     .task:hover{
-        box-shadow: rgb(180, 180, 180) 0px 3px 5px 2px;
+        background-color: rgb(243, 242, 242);
     }
     
     .task input[type='checkbox']{
