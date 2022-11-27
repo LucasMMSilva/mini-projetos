@@ -6,13 +6,15 @@ const setStorage = (storage)=> localStorage.setItem('todoList',JSON.stringify(st
 
 function createNewItem(index,task,status){
     const taskObj = document.createElement('label');
-    taskObj.classList.add('task');
-    taskObj.innerHTML = `
-        <input type="checkbox" ${status} data-index=${index}>
-        <label>${task}</label>
-        <button data-index=${index}>&#215;</button>
-    `;
-    document.getElementById('taskList').appendChild(taskObj);
+    if(nameTask.value != ''){
+        taskObj.classList.add('task');
+        taskObj.innerHTML = `
+            <input type="checkbox" ${status} data-index=${index}>
+            <label>${task}</label>
+            <button data-index=${index}>&#215;</button>
+        `;
+        document.getElementById('taskList').appendChild(taskObj);
+    }
 }
 
 
