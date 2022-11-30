@@ -1,4 +1,4 @@
-let nameTask = document.getElementById('nameTask');
+/*let nameTask = document.getElementById('nameTask');
 var storage = [];
 
 const getStorage = ()=> JSON.parse(localStorage.getItem('todoList')) ?? [''];
@@ -23,4 +23,4 @@ nameTask.addEventListener("keyup", ({key}) => {
         createNewItem(1,nameTask.value,"")
         nameTask.value = "";
     }
-})
+})*/
