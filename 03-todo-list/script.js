@@ -15,7 +15,9 @@ function createNewItem(index,task){
 
 nameTask.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
-        createNewItem(1,nameTask.value);
+        let name = nameTask.value.split('')
+        name[0] = name[0].toUpperCase();
+        createNewItem(1,name.join(''));
         nameTask.value = "";
     }
 })
