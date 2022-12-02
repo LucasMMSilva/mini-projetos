@@ -1,23 +1,59 @@
 let nameTask = document.getElementById('nameTask');
 var storage = [];
 
-const getStorage = ()=> JSON.parse(localStorage.getItem('todoList')) ?? [''];
-const setStorage = (storage)=> localStorage.setItem('todoList',JSON.stringify(storage));
+function getStorage(){
+    storage = localStorage.getItem('banco').split(',');
+}
+function setStorage(){
+    localStorage.setItem('banco',storage);
+}
 
 function createNewItem(index,task){
     const taskObj = document.createElement('div');
-    if(nameTask.value != ''){
-        taskObj.classList.add('task');
-        taskObj.innerHTML = `<label>${task}</label>`;
-        document.getElementById('list').appendChild(taskObj);
+    taskObj.classList.add('task');
+    taskObj.innerHTML = `<label>${task}</label>`;
+    document.getElementById('list').appendChild(taskObj); 
+}
+
+function insertTask(e){
+    getStorage();
+    storage.push(e);
+    setStorage();
+    atualize();
+}
+
+function atualize(){
+    clear();
+    showTaskList();
+}
+
+function showTaskList(){
+    for(let i = 0; i < storage.length; i++){
+        createNewItem(i,storage[i]);
+        console.log(i,storage[i])
     }
+}
+
+function clear(){
+    const list = document.getElementById('list');
+    list.innerHTML="";
 }
 
 nameTask.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
-        let name = nameTask.value.split('')
-        name[0] = name[0].toUpperCase();
-        createNewItem(1,name.join(''));
-        nameTask.value = "";
+        if(nameTask.value != ''){
+            let name = nameTask.value.split('')
+            name[0] = name[0].toUpperCase();
+            insertTask(name.join(''));
+            nameTask.value = "";
+        }
     }
-})
+});
+
+function clearAll(){
+    storage = [];
+    setStorage();
+    atualize();
+}
+
+this.atualize();
