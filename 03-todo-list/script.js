@@ -23,6 +23,7 @@ function insertTask(e){
 }
 
 function atualize(){
+    getStorage()
     clear();
     showTaskList();
 }
@@ -30,7 +31,6 @@ function atualize(){
 function showTaskList(){
     for(let i = 0; i < storage.length; i++){
         createNewItem(i,storage[i]);
-        console.log(i,storage[i])
     }
 }
 
@@ -41,10 +41,16 @@ function clear(){
 
 nameTask.addEventListener("keyup", ({key}) => {
     if (key === "Enter") {
-        if(nameTask.value != ''){
+        if(nameTask.value != ''){  
+            getStorage();
             let name = nameTask.value.split('')
             name[0] = name[0].toUpperCase();
-            insertTask(name.join(''));
+            name = name.join('')
+            if(storage.indexOf(name) == -1){
+                insertTask(name);
+            }else{
+                window.alert('Essa tarefa já existe!')
+            }
             nameTask.value = "";
         }
     }
@@ -56,4 +62,4 @@ function clearAll(){
     atualize();
 }
 
-this.atualize();
+atualize();

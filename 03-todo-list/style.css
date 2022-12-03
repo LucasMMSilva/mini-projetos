@@ -52,5 +52,6 @@ body{
     font-size: 18px;   
 }
 .task:hover{
-    background: linear-gradient(60deg, rgb(211, 235, 235) 0%, rgb(241, 248, 218) 100%);
+    background-color: #47D29D;
+    color: white;
 }
