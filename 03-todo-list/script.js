@@ -11,7 +11,7 @@ function setStorage(){
 function createNewItem(index,task){
     const taskObj = document.createElement('div');
     taskObj.classList.add('task');
-    taskObj.innerHTML = `<label data-eIndex="${index}">${task}</label>`;
+    taskObj.innerHTML = `<label data-index=${index}>${task}</label>`;
     document.getElementById('list').appendChild(taskObj); 
 }
 
@@ -70,8 +70,9 @@ function removeTask(e){
 }
 
 function clickObj(e){
-    const element = e.target;
-    removeTask(element.dataset.eIndex);
+    const el = e.target;
+    const indexObj = el.dataset.index;
+    console.log(indexObj)
 }
 
 document.getElementById('list').addEventListener('click', clickObj);
