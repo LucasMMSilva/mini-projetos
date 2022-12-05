@@ -4,21 +4,21 @@ var storage = [];
 function getStorage(){
     storage = localStorage.getItem('banco').split(',');
 }
-function setStorage(){
-    localStorage.setItem('banco',storage);
+function setStorage(e){
+    localStorage.setItem('banco',e);
 }
 
 function createNewItem(index,task){
     const taskObj = document.createElement('div');
     taskObj.classList.add('task');
-    taskObj.innerHTML = `<label data-index=${index}>${task}</label>`;
+    taskObj.innerHTML = `<div data-index=${index}><label>${task}</label></div>`;
     document.getElementById('list').appendChild(taskObj); 
 }
 
 function insertTask(e){
     getStorage();
     storage.push(e);
-    setStorage();
+    setStorage(storage);
     atualize();
 }
 
@@ -58,21 +58,21 @@ nameTask.addEventListener("keyup", ({key}) => {
 
 function clearAll(){
     storage = [];
-    setStorage();
+    setStorage(storage);
     atualize();
 }
 
 function removeTask(e){
     getStorage();
     storage.splice(e,1);
-    setStorage();
+    setStorage(storage);
     atualize();
 }
 
 function clickObj(e){
     const el = e.target;
     const indexObj = el.dataset.index;
-    console.log(indexObj)
+    removeTask(indexObj);
 }
 
 document.getElementById('list').addEventListener('click', clickObj);
