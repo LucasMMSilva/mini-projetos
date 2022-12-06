@@ -1,11 +1,12 @@
 let nameTask = document.getElementById('nameTask');
 var storage = [];
 
+
 function getStorage(){
-    storage = localStorage.getItem('banco').split(',');
+    storage = localStorage.getItem('storage').split(',');
 }
 function setStorage(e){
-    localStorage.setItem('banco',e);
+    localStorage.setItem('storage',e);
 }
 
 function createNewItem(index,task){
@@ -76,5 +77,9 @@ function clickObj(e){
 }
 
 document.getElementById('list').addEventListener('click', clickObj);
-
-atualize();
+if(localStorage.getItem('storage')){
+    atualize();
+}else{
+    console.log(setStorage(storage));
+    atualize();
+}
