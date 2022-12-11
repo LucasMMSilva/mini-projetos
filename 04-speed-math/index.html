@@ -23,7 +23,7 @@
             <input type="checkbox" name="adicao" id="adicao" checked><label for="adicao"> Adição</label>
             <input type="checkbox" name="subtracao" id="subtracao" checked><label for="subtracao"> Subtração</label>
             <input type="checkbox" name="multiplicacao" id="multiplicacao" checked><label for="multiplicacao"> Multiplicação</label>
-            <input type="checkbox" name="divisao" id="divisao" checked><label for="divisao"> Divisão</label>
+            <input type="checkbox" name="divisao" id="divisao"><label for="divisao"> Divisão</label>
             <br><br>
             <p>Marque a quantidade de digitos das operações:</p>
             <input type="radio" name="dig" id="d1" value="d1" checked><label for="d1"> 1 digito</label>
@@ -35,7 +35,7 @@
         </div>
         <div id="main">
             <div class="question">
-                <div class="num1 quest">13</div><div class="operator quest">+</div><div class="num2 quest">22</div>
+                <div id="num1" class="num1 quest"></div><div id="operator" class="operator quest"></div><div id="num2" class="num2 quest"></div>
             </div>
             <input type="number" id="inpText" class="inpText">
             <button class="btn" onclick="calc()"> Calcular </button>
