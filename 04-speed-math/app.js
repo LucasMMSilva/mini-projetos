@@ -3,6 +3,7 @@ const telaParametros2  =  document.getElementById('param-2');
 const telaMain         =  document.getElementById('main');
 const telaResult       =  document.getElementById('result');
 let inputText          =  document.getElementById('inpText');
+let inputCalc        =  document.getElementById('inpCalc');
 let adicao             =  document.getElementById('adicao');
 let subtracao          =  document.getElementById('subtracao');
 let multiplicacao      =  document.getElementById('multiplicacao');
@@ -74,12 +75,19 @@ function start(){
 }
 function calc(){
 
-        if(inputText.value == resultado){
-            acertos++;
-        }else{
-            erros++;
-        }
-        setInfo();
+    let i = 0;
+    if(parseInt(inputCalc.value) == resultado){
+        acertos++;
+    }else{
+        erros++;
+    }
+    i++;
+    setInfo();
+    inputCalc.value = ''
+    inputCalc.focus();
+    if(i == parseInt(inputText.value)){
+        result();
+    }
     
 }
 
